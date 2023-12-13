@@ -21,6 +21,7 @@ package com.quickprediction;
 
 import android.os.Bundle;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
@@ -64,26 +65,11 @@ public class MainActivity extends CordovaActivity
 
     private boolean checkInternetConenction() {
         // get Connectivity Manager object to check connection
-        ConnectivityManager connec
+        ConnectivityManager connectivityManager
                 =(ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
-
         // Check for network connections
-        if ( connec.getNetworkInfo(0).getState() ==
-                android.net.NetworkInfo.State.CONNECTED ||
-                connec.getNetworkInfo(0).getState() ==
-                        android.net.NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() ==
-                        android.net.NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED ) {
-            return true;
-        } else if (
-                connec.getNetworkInfo(0).getState() ==
-                        android.net.NetworkInfo.State.DISCONNECTED ||
-                        connec.getNetworkInfo(1).getState() ==
-                                android.net.NetworkInfo.State.DISCONNECTED  ) {
-            return false;
-        }
-        return false;
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }
