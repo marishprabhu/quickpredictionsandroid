@@ -8,3 +8,9 @@ keytool -importcert -file deployment_cert.der -keystore upload.keystore -alias q
 
 To create release build:
 cordova build android --release --buildConfig
+
+To run in local:
+
+npm install
+cordova build android
+cordova emulate android
