@@ -20,6 +20,11 @@
 package com.quickprediction;
 
 import android.os.Bundle;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+import android.content.DialogInterface;
 
 import org.apache.cordova.*;
 
@@ -37,6 +42,35 @@ public class MainActivity extends CordovaActivity
         }
 
         // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
+		if (checkInternetConenction())
+        {
+			loadUrl(launchUrl);
+		} else {
+            try {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("No internet connection")
+                        .setMessage("Please check your internet connection and reopen the app")
+                        .setCancelable(false)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+
+                            }
+                        }).show();
+            } catch (Exception e) {
+                //Log.d(Constants.TAG, "Show Dialog: " + e.getMessage());
+            }
+        }
+		
     }
+	
+	private boolean checkInternetConenction() {
+        // get Connectivity Manager object to check connection
+        ConnectivityManager connectivityManager
+                =(ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+        // Check for network connections
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}	
 }

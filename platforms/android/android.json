@@ -10,15 +10,15 @@
           "/manifest": [
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 6
+              "count": 9
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-              "count": 6
+              "count": 9
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-              "count": 6
+              "count": 9
             }
           ]
         }
