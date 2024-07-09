@@ -1,7 +1,7 @@
 {
   "name": "com.astrology.quickpredictions",
   "displayName": "QuickPredictions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Astrology software to create Horoscope, Check Marriage Matching, Jamakkol and much more astrological services.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Quick Predictions Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^12.0.0",
+    "cordova-android": "^13.0.0",
     "cordova-plugin-file": "^8.0.0",
     "cordova-plugin-splashscreen": "^6.0.1"
   },
@@ -24,8 +24,7 @@
     "plugins": {
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
-      },
-      "cordova-plugin-splashscreen": {}
+      }
     }
   }
 }

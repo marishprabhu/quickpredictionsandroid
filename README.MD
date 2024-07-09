@@ -11,6 +11,13 @@ cordova build android --release --buildConfig
 
 To run in local:
 
+
 npm install
+npm install -g cordova
+
+cordova platform rm android
+cordova platform add android
+
 cordova build android
+In quickpredictionsandroid\platforms\android release-signing set the correct path.
 cordova emulate android

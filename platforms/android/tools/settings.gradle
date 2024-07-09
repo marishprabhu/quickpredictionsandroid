@@ -15,28 +15,15 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
- */
+*/
 
-package com.quickprediction;
-
-import android.os.Bundle;
-
-import org.apache.cordova.*;
-
-public class MainActivity extends CordovaActivity
-{
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-
-        // enable Cordova apps to be started in the background
-        Bundle extras = getIntent().getExtras();
-        if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
-            moveTaskToBack(true);
-        }
-
-        // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
-    }
-}
+// This is an empty project used to provide Gradle Tooling
+// Using the main project which loads AGP will enforce a minimum version
+// requirement on the end-user, requiring a gradle install that satisfies AGP
+// version requirements.
+// To avoid that, we utilise this empty project of which we can
+// freely run the gradle wrapper task against to obtain the 
+// wrapper at the desired version, without being restricted by AGP's version
+// requirements.
+// Of course, the installed wrapper must still be of at least the minimum
+// required version of AGP for the build to work correctly.
