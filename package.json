@@ -1,7 +1,7 @@
 {
   "name": "com.astrology.quickpredictions",
   "displayName": "QuickPredictions",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Astrology software to create Horoscope, Check Marriage Matching, Jamakkol and much more astrological services.",
   "main": "index.js",
   "scripts": {
